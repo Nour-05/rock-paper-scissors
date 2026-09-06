@@ -40,3 +40,5 @@ function playGame(){
     let winner = humanScore > computerScore ? "you" : "me";
     console.log("Final winner is " + winner + " !!!!")
 }
+
+playGame();
