@@ -8,7 +8,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    return prompt("Enter one of the choices(rock,paper, scissors)");
+    return (prompt("Enter one of the choices(rock,paper, scissors)")).toLowerCase();
 
 }
 
@@ -19,7 +19,7 @@ let humanScore = 0;
 function playRound(humanChoice, computerChoice){
 
     if(humanChoice === computerChoice)
-        console.log("Draw");
+        console.log("Draw! Both chose " + computerChoice);
     else if ((humanChoice==="rock" && computerChoice==="scissors") || (humanChoice==="scissors" && computerChoice==="paper") || (humanChoice==="paper" && computerChoice==="rock")){
         console.log("You win! " + humanChoice + " beats " + computerChoice);
         humanScore++;
