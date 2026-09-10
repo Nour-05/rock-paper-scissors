@@ -7,18 +7,8 @@ function getComputerChoice(){
     else return "scissors";
 }
 
-/*
-function getHumanChoice(){
-    return (prompt("Enter one of the choices(rock,paper, scissors)")).toLowerCase();
-
-}
-*/
-
 let computerScore = 0;
 let humanScore = 0;
-
-const results = document.createElement("div");
-document.body.appendChild(results);
 
 function playRound(event){
     let humanChoice = (event.target.textContent);
@@ -33,25 +23,25 @@ function playRound(event){
         results.textContent = "You lose! " + computerChoice + " beats " + humanChoice;
         computerScore++;
     }
-}
-/*
-function playGame(){
-    
-    for(let i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
-    let winner = humanScore > computerScore ? "you" : "me";
-    console.log("Final winner is " + winner + " !!!!")
-}
 
-playGame();
-*/
+    finalScore.textContent="";
+    if(computerScore===5){
+        finalScore.textContent="Computer score is 5  Your score is" + humanScore.toString() + ". YOU LOSE!!!!"; 
+        computerScore = 0;
+        humanScore=0;
+    }
+    if(humanScore===5){
+        finalScore.textContent="Computer score is " + computerScore.toString() + "  Your score is 5. YOU WIN!!!!"; 
+        computerScore = 0;
+        humanScore = 0;
+    }
+}
 
 const rock = document.createElement("button");
 const paper = document.createElement("button");
 const scissors = document.createElement("button");
+const results = document.createElement("div");
+const finalScore = document.createElement("h1");
 
 rock.textContent = "rock";
 paper.textContent = "paper";
@@ -65,3 +55,5 @@ const container = document.querySelector(".container");
 container.appendChild(rock);
 container.appendChild(paper);
 container.appendChild(scissors);
+container.appendChild(results);
+container.appendChild(finalScore);
